@@ -1,3 +1,4 @@
+
 # ServiceFabric ReliableTimer
 This is a persistent timer for Service Fabric that allows for triggering a listener on an interval. The interesting part about this timer is that it allows for durable timer countdowns which are not affected by restarting services or rebalanced replicas etc. In other words, the timer works as expected in the sometimes chaotic (but awesome!) environment of Service Fabric.
 
@@ -24,3 +25,5 @@ intervalTracker.ReliableElapsed += (sender, e) =>
     intervalTracker.InProgress = false;
 };
 ```
+
+NOTE: Don't forget the using statement :)
