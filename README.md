@@ -3,6 +3,7 @@ This is a persistent timer for Service Fabric that allows for triggering a liste
 
 Usage:
 
+```C#
 var intervalTracker = new ReliableTimer(StateManager, "intervalTracker", Context, cancellationToken)
 {
     // Change to your desired interval in ms
@@ -22,3 +23,4 @@ intervalTracker.ReliableElapsed += (sender, e) =>
 
     intervalTracker.InProgress = false;
 };
+```
