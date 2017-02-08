@@ -5,7 +5,7 @@ This is a persistent timer for Service Fabric that allows for triggering a liste
 Usage:
 
 ```C#
-var intervalTracker = new ReliableTimer(StateManager, "intervalTracker", Context, cancellationToken)
+var intervalListener = new ReliableTimer(StateManager, "intervalListener", Context, cancellationToken)
 {
     // Change to your desired interval in ms
     ReliableInterval = 60_000,
@@ -13,16 +13,16 @@ var intervalTracker = new ReliableTimer(StateManager, "intervalTracker", Context
 };
 
 
-intervalTracker.ReliableElapsed += (sender, e) =>
+intervalListener.ReliableElapsed += (sender, e) =>
 {
     // #InProgress is optional, but it prevents
     // elapsed events from stepping on each other by
     // only executing when set to false (default).
-    intervalTracker.InProgress = true;
+    intervalListener.InProgress = true;
     
     // Code to execute on schedule here
 
-    intervalTracker.InProgress = false;
+    intervalListener.InProgress = false;
 };
 ```
 
